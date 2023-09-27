@@ -1,0 +1,12 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: sample-app
+  labels:
+    service-monitor: function
+spec:
+  selector:             # Selector：设置为Pod的Label"app: sample-app"
+    matchLabels:
+      app: sample-app
+  endpoints:            # Endpoints：设置为在Service中定义的端口名称"http"
+  - port: http

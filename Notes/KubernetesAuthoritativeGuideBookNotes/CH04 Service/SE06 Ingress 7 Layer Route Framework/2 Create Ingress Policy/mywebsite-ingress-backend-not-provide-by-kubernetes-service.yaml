@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-resource-backend
+spec:
+  defaultBackend:
+    resource:
+      apiGroup: k8s.example.com
+      kind: StorageBucket
+      name: static-assets
+  rules:
+    - http:
+      paths:
+      - path: /icons
+        pathType: ImplementationSpecific
+        backend:
+          resource:
+            apiGroup: k8s.example.com
+            kind: StorageBucket
+            name: icon-assets
+
+# 通过这个Ingress的定义，客户端对路径/icons的访问将会被路由转发到后端名为“icon-assets”的StorageBucket服务上。不匹配任何规则的请求则被路由转发到默认的后端（defaultBackend）上

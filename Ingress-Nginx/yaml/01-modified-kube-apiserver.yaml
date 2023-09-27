@@ -1,0 +1,4 @@
+spec:
+  containers:
+  - command:
+    - --service-node-port-range=1-65535

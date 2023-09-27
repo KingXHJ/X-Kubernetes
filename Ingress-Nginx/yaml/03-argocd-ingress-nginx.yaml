@@ -1,0 +1,37 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argocd-server-ingress
+  namespace: argocd
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    # If you encounter a redirect loop or are getting a 307 response code
+    # then you need to force the nginx ingress to connect to the backend using HTTPS.
+    #
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+spec:
+  ingressClassName: "nginx"
+  rules:
+  - host: azure.kingxhj.eu.org
+    http:
+      paths:
+      - path: / # 不知道为什么不能加路径呢？？？
+        pathType: Prefix
+        backend:
+          service:
+            name: argocd-server
+            port:
+              name: https
+  tls:
+  - hosts:
+    - azure.kingxhj.eu.org
+    secretName: argocd-server-tls 
+    # do not trust URL: https://argo-cd.readthedocs.io/en/stable/operator-manual/ingress/#kubernetesingress-nginx
+    # watch URL: https://argo-cd.readthedocs.io/en/stable/operator-manual/tls/
+# kubectl apply -f 02-argocd-ingress.yaml
+# az network nsg rule create -g rg-cka -n argocd-http-inbound --access allow --destination-address-prefixes '*' --destination-port-range 80 --direction inbound --nsg-name cka-nsg --protocol '*' --source-address-prefixes '*' --source-port-range '*' --priority 1002
+# az network nsg rule create -g rg-cka -n argocd-http-outbound --access allow --destination-address-prefixes '*' --destination-port-range '*' --direction outbound --nsg-name cka-nsg --protocol '*' --source-address-prefixes '*' --source-port-range 80 --priority 1003
+# az network nsg rule create -g rg-cka -n argocd-https-inbound --access allow --destination-address-prefixes '*' --destination-port-range 443 --direction inbound --nsg-name cka-nsg --protocol '*' --source-address-prefixes '*' --source-port-range '*' --priority 1002
+# az network nsg rule create -g rg-cka -n argocd-https-outbound --access allow --destination-address-prefixes '*' --destination-port-range '*' --direction outbound --nsg-name cka-nsg --protocol '*' --source-address-prefixes '*' --source-port-range 443 --priority 1003

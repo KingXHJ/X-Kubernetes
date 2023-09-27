@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: simple-fanout-example
+spec:
+  rules:
+  - host: mywebsite.com
+    http:
+      paths:
+      - path: /web
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: web-service
+            port:
+              number: 8080
+      - path: /api
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: api-service
+            port: 
+              number: 8081

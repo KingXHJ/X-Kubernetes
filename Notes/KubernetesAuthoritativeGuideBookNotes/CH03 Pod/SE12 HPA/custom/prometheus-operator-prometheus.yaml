@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  name: prometheus
+  labels:
+    app: prometheus
+    prometheus: prometheus
+spec:
+  replicas: 1
+  baseImage: prom/prometheus
+  version: v2.8.0
+  serviceMonitorSelector:
+    matchLabels:
+      service-monitor: function
+  resources:
+    requests:
+      memory: 300Mi

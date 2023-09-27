@@ -1,0 +1,46 @@
+<mxfile host="Electron" modified="2023-07-08T08:38:15.097Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.1 Chrome/112.0.5615.204 Electron/24.6.1 Safari/537.36" etag="spvlMnvwRY1zCU2q6Vqz" version="21.6.1" type="device">
+  <diagram name="第 1 页" id="BU6Q65cIdg73-IPY4VQ8">
+    <mxGraphModel dx="1418" dy="820" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="hZD7FLCA5-kdj5Sm-Pci-1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#333333;strokeColor=none;" parent="1" vertex="1">
+          <mxGeometry x="180" y="140" width="570" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="st4I57soAoaPSC-TbPq0-1" value="Replication&lt;br style=&quot;font-size: 18px;&quot;&gt;Controller" style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;strokeColor=none;fillColor=#808080;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="190" y="150" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hZD7FLCA5-kdj5Sm-Pci-3" value="Namespace&lt;br style=&quot;font-size: 18px;&quot;&gt;Controller" style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;strokeColor=none;fillColor=#808080;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="190" y="230" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hZD7FLCA5-kdj5Sm-Pci-4" value="Service&lt;br style=&quot;font-size: 18px;&quot;&gt;Controller" style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;strokeColor=none;fillColor=#808080;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="190" y="310" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hZD7FLCA5-kdj5Sm-Pci-5" value="Route&lt;br style=&quot;font-size: 18px;&quot;&gt;Controller" style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;strokeColor=none;fillColor=#808080;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="190" y="390" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hZD7FLCA5-kdj5Sm-Pci-6" value="Node&lt;br style=&quot;font-size: 18px;&quot;&gt;Controller" style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;strokeColor=none;fillColor=#808080;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="390" y="150" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hZD7FLCA5-kdj5Sm-Pci-7" value="ServiceAccount&lt;br&gt;Controller" style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;strokeColor=none;fillColor=#808080;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="390" y="230" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hZD7FLCA5-kdj5Sm-Pci-8" value="Endpoint&lt;br&gt;Controller" style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;strokeColor=none;fillColor=#808080;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="390" y="310" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hZD7FLCA5-kdj5Sm-Pci-9" value="Volume&lt;br&gt;Controller" style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;strokeColor=none;fillColor=#808080;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="390" y="390" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hZD7FLCA5-kdj5Sm-Pci-10" value="ResourceQuota&lt;br style=&quot;font-size: 18px;&quot;&gt;Controller" style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;strokeColor=none;fillColor=#808080;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="590" y="150" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hZD7FLCA5-kdj5Sm-Pci-11" value="Token&lt;br&gt;Controller" style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;strokeColor=none;fillColor=#808080;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="590" y="230" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hZD7FLCA5-kdj5Sm-Pci-12" value="Deployment&lt;br&gt;Controller" style="rounded=1;whiteSpace=wrap;html=1;fontSize=18;strokeColor=none;fillColor=#808080;fontColor=#FFFFFF;" parent="1" vertex="1">
+          <mxGeometry x="590" y="310" width="150" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

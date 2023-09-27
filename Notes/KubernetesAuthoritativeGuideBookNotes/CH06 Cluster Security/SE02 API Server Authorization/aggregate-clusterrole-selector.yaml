@@ -1,0 +1,9 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: monitoring
+aggregationRule:
+  clusterRoleSelectors:
+  - matchLables:
+    rbac.example.com/aggregate-to-monitoring: "true"
+rules: []                                             # 系统自动填充、合并的结果

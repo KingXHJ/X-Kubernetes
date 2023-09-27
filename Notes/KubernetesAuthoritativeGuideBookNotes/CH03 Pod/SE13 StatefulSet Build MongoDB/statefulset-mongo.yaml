@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mongo
+spec:
+  serviceName: "mongo"
+replicas: 3                                                 # 集群里有3个mongo实例组成
+  template:
+    metadata:
+      labels:
+        role: mongo
+      environment: test
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: mongo                                         # 主服务器
+        image: mongo
+        command:
+        - mongod
+        - "--replSet"
+        - rs0
+        - "--smallfiles"
+        - "--noprealloc"
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - name: mongo-persistent-storage
+          mountPath: /data/db
+      - name: mongo-sidecar                                 # 将多个mongo实例进行集群设置的工具
+        image: cvallance/mongo-k8s-sidecar
+        env:
+        - name: MONGO_SIDECAR_POD_LABELS                    # 设置为mongo容器的标签，用于sidecar查询它所要管理的MongoDB集群实例
+          value: "role=mongo,environment=test"
+        - name: KUBERNETES_MONGO_SERVICE_NAME               # 表示sidecar将使用mongo这个服务名来完成MongoDB集群的设置
+          value: "mongo"
+volumeClaimTemplates:                                       # 是Stateful最重要的存储设置 resources.requests.storage=100Gi
+    - metadata:
+        name: mongo-persistent-storage
+        annotations:
+          volume.beta.kubernetes.io/storage-class: "fast"   # 表示使用名为fast的StorageClass自动为每个mongo Pod实例都分配后算存储
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 100Gi                                  # 表示为每个Mongo实例都分配100GiB的磁盘空间

@@ -1,0 +1,68 @@
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: php-apache
+spec:
+  scaleTargetRef:               # 目标作用对象，如Deployment、ReplicationController、ReplicaSet
+    apiVersion: apps/v1
+    kind: Deployment
+    name: php-apache
+  minReplicas: 1                # Pod副本的最大值和最小值
+  maxReplicas: 10
+  metrics:                      # 目标指标值
+  - type: Resource              # 当前伸缩对象下Pod的CPU和Memory指标，只支持Utilization和AverageValue类型的目标值
+    name: cpu
+    target:
+      type: Utilization
+      averageUtilization: 50    # 期望每个Pod的CPU使用率
+  
+  
+  # Resource: 指的是当前伸缩对象下 Pod 的 CPU 和 Memory 指标，只支持 Utilization 和 AverageValue 类型的目标值。对于 CPU 使用率，在 target 参数中设置 averageUtilization 定义目标平均 CPU 使用率。对于内存资源，在 target 参数中设 AverageValue 定义目标平均内存使用值
+  # Pods: 指的是伸缩对象 Pod 指标，数据需要由第三方的 Adapter 提供，只允许 Average Value 类型的目标值
+  # Object: Kubernetes 内部对象的指标，数据需要由第三方 Adapter 提供，只支持 Value 和 AverageValue 类型的目标值
+  # External: 指的是 Kubemetes 外部的指标，数据同样需要由第三方 Adapter 提供，只支Value AverageValue 类型的目标值
+  #
+  # Pod type examples:
+  # metrics:
+  # - type: Pods[Resources/Pods/Object/External]
+  #   pods:
+  #     metrics:
+  #       name: packets-per-second
+  #     target:
+  #       type: AverageValue
+  #       averageValue: 1k
+  #
+  # Object type examples:
+  # metrics:
+  # - type: Object
+  #   object:
+  #     metric:
+  #       name: requests-per-second
+  #     describedObject:
+  #       apiVersion: extensions/v1beta1
+  #       kind: Ingress
+  #       name: main-route
+  #     target:
+  #       type: Value
+  #       value: 2k
+
+  # metrics:
+  # - type: Object
+  #   object:
+  #     metric:
+  #       name: 'http_requests'
+  #       selector: 'verb=GET'
+  #     target:
+  #       type: AverageValue
+  #       averageValue: 500
+  # 
+  # External type example:
+  # metrics:
+  # - type: External
+  #   external:
+  #     metric:
+  #       name: queue_messages_ready
+  #       selector: "queue=worker_tasks"
+  #     target:
+  #       type: AverageValue
+  #       averageValue: 30 

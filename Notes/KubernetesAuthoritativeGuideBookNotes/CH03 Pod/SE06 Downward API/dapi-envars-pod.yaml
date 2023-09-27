@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dapi-envars-fieldref
+spec:
+  containers:
+  - name: test-container
+    image: busybox
+    command: ["sh", "-c"]
+    args:
+    - while true; do
+        echo -en '\n';
+        printenv MY_NODE_NAME MY_POD_NAME MY_POD_NAMESPACE;
+        printenv MY_POD_IP MY_POD_SERVICE_ACCOUNT;
+        sleep 10;
+      done;
+    env:
+    - name: MY_NODE_NAME
+      valueFrom:
+        fieldRef:
+          fieldPath: spec.nodeName              # spec.nodeName: Pod所在Node的名称
+    - name: MY_POD_NAME
+      valueFrom:
+        fieldRef:
+          fieldPath: metadata.name              # metadata.name: Pod名称。
+    - name: MY_POD_NAMESPACE
+      valueFrom:
+        fieldRef:
+          fieldPath: metadata.namespace         # metadata.namespace: Pod所在命名空间的名称
+    - name: MY_POD_IP
+      valueFrom:
+        fieldRef:
+          fieldPath: status.podIP               # status.podIP: Pod的IP地址
+    - name: MY_POD_SERVICE_ACCOUNT
+      valueFrom:
+        fieldRef:
+          fieldPath: spec.serviceAccountName    # spec.serviceAccountName: Pod使用的 ServiceAccount 名称
+  restartPolicy: Never

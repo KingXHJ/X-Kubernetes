@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: coredns
+  namespace: kube-system
+  labels:
+    addonmanager.kubernetes.io/mode: EnsureExists
+data:
+  Corefile: |
+    cluster.local {
+      errors
+      health {
+        lameduck 5s
+      }
+      ready
+      kubernetes cluster.local 169.169.0.0/16 {
+        fallthrough in-addr.arpa ip6.arpa
+      }
+      prometheus :9153
+      forward . /etc/resolv.conf
+      cache 30
+      loop
+      reload
+      loadbalance
+    }
+    . {
+      cache 30
+      loadbalance
+      forward . /etc/resolv.conf
+    }
+
+# etcd plugin
+    # {
+    #   etcd com {
+    #     path /skydns
+    #     endpoint http://192.168.18.3:2379
+    #     upstream /etc/resolve.conf
+    #   }
+    #   cache 160 com
+    #   loadbalance
+    #   proxy . /etc/resolve.conf
+    # }

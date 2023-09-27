@@ -1,0 +1,79 @@
+<mxfile host="Electron" modified="2023-07-08T08:57:26.172Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.1 Chrome/112.0.5615.204 Electron/24.6.1 Safari/537.36" etag="3UA9wiSXc1AONDo_KyM6" version="21.6.1" type="device">
+  <diagram name="第 1 页" id="BU6Q65cIdg73-IPY4VQ8">
+    <mxGraphModel dx="2587" dy="820" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="o5xesMfrAusdDNZWTFjg-25" value="" style="group" vertex="1" connectable="0" parent="1">
+          <mxGeometry x="-30" y="20" width="1199" height="620" as="geometry" />
+        </mxCell>
+        <mxCell id="o5xesMfrAusdDNZWTFjg-1" value="如果Controller Manager设置了&quot;--cluster-cidr&quot;参数&lt;br style=&quot;font-size: 16px;&quot;&gt;则为每个Node都配置:&quot;spec.PodCIDR&quot;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="o5xesMfrAusdDNZWTFjg-25">
+          <mxGeometry x="410" y="60" width="380" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="o5xesMfrAusdDNZWTFjg-2" value="逐个读取Node信息&lt;br&gt;并和本地nodeStatusMap做比较" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="o5xesMfrAusdDNZWTFjg-25">
+          <mxGeometry x="410" y="180" width="380" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="o5xesMfrAusdDNZWTFjg-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="o5xesMfrAusdDNZWTFjg-25" source="o5xesMfrAusdDNZWTFjg-1" target="o5xesMfrAusdDNZWTFjg-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o5xesMfrAusdDNZWTFjg-3" value="用Master节点的系统事件&lt;br&gt;作为探测时间和节点状态变化时间" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="o5xesMfrAusdDNZWTFjg-25">
+          <mxGeometry y="300" width="380" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="o5xesMfrAusdDNZWTFjg-4" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;用Master节点的系统事件&lt;/span&gt;&lt;br style=&quot;border-color: var(--border-color); color: rgb(0, 0, 0); font-family: Helvetica; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; float: none; display: inline !important;&quot;&gt;作为探测时间和节点状态变化时间&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="o5xesMfrAusdDNZWTFjg-25">
+          <mxGeometry x="410" y="300" width="380" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="o5xesMfrAusdDNZWTFjg-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="o5xesMfrAusdDNZWTFjg-25" source="o5xesMfrAusdDNZWTFjg-2" target="o5xesMfrAusdDNZWTFjg-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o5xesMfrAusdDNZWTFjg-5" value="用Master节点的系统事件作为探测时间&lt;br&gt;用上次节点信息中的节点状态变化时间作为该节点的状态变化时间" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="o5xesMfrAusdDNZWTFjg-25">
+          <mxGeometry x="819" y="300" width="380" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="o5xesMfrAusdDNZWTFjg-7" value="如果在某一段时间内没有收到节点状态信息&lt;br&gt;则设置节点状态为“未知”" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="o5xesMfrAusdDNZWTFjg-25">
+          <mxGeometry x="410" y="420" width="380" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="o5xesMfrAusdDNZWTFjg-8" value="删除节点或同步节点信息" style="rounded=0;whiteSpace=wrap;html=1;fontSize=16;" vertex="1" parent="o5xesMfrAusdDNZWTFjg-25">
+          <mxGeometry x="410" y="540" width="380" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o5xesMfrAusdDNZWTFjg-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="o5xesMfrAusdDNZWTFjg-25" source="o5xesMfrAusdDNZWTFjg-4" target="o5xesMfrAusdDNZWTFjg-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o5xesMfrAusdDNZWTFjg-9" value="" style="ellipse;whiteSpace=wrap;html=1;strokeColor=none;fillColor=#000000;" vertex="1" parent="o5xesMfrAusdDNZWTFjg-25">
+          <mxGeometry x="590" y="600" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="o5xesMfrAusdDNZWTFjg-14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="o5xesMfrAusdDNZWTFjg-25" source="o5xesMfrAusdDNZWTFjg-10" target="o5xesMfrAusdDNZWTFjg-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o5xesMfrAusdDNZWTFjg-10" value="" style="ellipse;whiteSpace=wrap;html=1;strokeColor=none;fillColor=#000000;" vertex="1" parent="o5xesMfrAusdDNZWTFjg-25">
+          <mxGeometry x="590" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="o5xesMfrAusdDNZWTFjg-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="o5xesMfrAusdDNZWTFjg-25" source="o5xesMfrAusdDNZWTFjg-7" target="o5xesMfrAusdDNZWTFjg-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o5xesMfrAusdDNZWTFjg-20" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="o5xesMfrAusdDNZWTFjg-25" source="o5xesMfrAusdDNZWTFjg-2" target="o5xesMfrAusdDNZWTFjg-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="320" y="300" as="sourcePoint" />
+            <mxPoint x="370" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o5xesMfrAusdDNZWTFjg-19" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="o5xesMfrAusdDNZWTFjg-25" source="o5xesMfrAusdDNZWTFjg-8" target="o5xesMfrAusdDNZWTFjg-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="o5xesMfrAusdDNZWTFjg-21" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="o5xesMfrAusdDNZWTFjg-25" source="o5xesMfrAusdDNZWTFjg-2" target="o5xesMfrAusdDNZWTFjg-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="860" y="260" as="sourcePoint" />
+            <mxPoint x="910" y="210" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="o5xesMfrAusdDNZWTFjg-22" value="没有收到节点信息或第一次收到节点信息&lt;br&gt;或在该处理过程中节点状态变成非“健康”状态" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="o5xesMfrAusdDNZWTFjg-25">
+          <mxGeometry x="30" y="260" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o5xesMfrAusdDNZWTFjg-23" value="在指定时间内收到新的节点信息&lt;br&gt;且节点状态发生变化" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="o5xesMfrAusdDNZWTFjg-25">
+          <mxGeometry x="515" y="260" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="o5xesMfrAusdDNZWTFjg-24" value="在指定时间内收到新的节点信息&lt;br&gt;且节点状态没发生变化" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="o5xesMfrAusdDNZWTFjg-25">
+          <mxGeometry x="900" y="260" width="180" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,19 @@
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: sample-app
+spec:
+  scaleTargetRef:                 # scaleTargetRef：设置HPA的作用对象为之前部署的Deployment “sample-app”
+    apiVersion: apps/v1
+    kind: Deployment
+    name: sample-app
+    minReplicas: 1                # minReplicas和maxReplicas：将扩容区间设置为1~10（单位是Pod副本）
+    maxReplicas: 10
+    metrics:
+    - type: Pods                  # type=Pods：设置指标类型为Pods，表示从Pod中获取指标数据
+      pods:
+        metric:
+          name: http_requests     # metric.name=http_requests：将指标的名称设置为“http_requests”，是自动逸Metrics Server将应用程序提供的指标“http_requests_total”经过计算转换成的一个新比率值，即sum(rate(http_requests_total{namespace="xx",pod="xx"}[1m])) by pod，指过去1min内全部Pod指标http_requests_total总和的每秒平均值
+        target:                   # target：将指标http_requests的目标值设置为500m，类型为AverageValue，表示基于全部Pod副本数据计算平均值。目标Pod的副本数量将使用公式"http_requests当前值/500m"进行计算
+          type: AverageValue
+          averageValue: 500m

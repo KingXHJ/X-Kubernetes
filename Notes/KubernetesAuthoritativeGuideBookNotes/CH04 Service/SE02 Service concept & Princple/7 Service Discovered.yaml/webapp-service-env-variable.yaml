@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp
+spec:
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
+  selector:           # 若没有设置Label Selector，则Kubernetes将不会自动创建对应的Endpoint列表
+    app: webapp       # DNS系统会根据下列条件尝试对该服务名设置DNS记录：
+                      # 1. 如果Service的类型为ExternalName，则对服务名的访问将直接被DNS系统转换为Service设置的外部名称（externalName）
+                      # 2. 如果系统中存在与Service同名的Endpoint定义，则服务名将被解析为Endpoint定义中的列表，适用于非ExternalName类型的Service

@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: custom-metrics-server
+  namespcae: custom-metrics
+  labels:
+    app: custom-metrics-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: custom-metrices-server
+  template:
+    metadata:
+      name: custom-metrics-server
+      labels:
+        app: custom-metrics-server
+    spec:
+      containers:
+      - name: custom-metrics-server
+        image: directxman12/k8s-prometheus-adapter-amd64
+        imagePullPolicy: IfNotPresent
+        args:
+        - --prometheus-url=http://prometheus.default.svc:9090/  # 参数--prometheus-url用于设置之前创建的Prometheus服务再Kubernetes中的DNS域名格式地址，例如prometheus.default.svc
+        - --metrics-relist-interval=30s                         # 参数--metrics-relist-interval用于设置更新指标缓存的频率，应将其设置为大于或等于Prometheus的指标采集频率
+        - --v=10
+        - --config=/etc/adapter/config.yaml
+        - --logtostderr=true
+        ports:
+        - containerPort: 443
+        securityContext:
+          runAsUser: 0
+        VolumeMounts:
+        - mountPath: /etc/adapter/
+          name: config
+          readOnly: true
+      volumes:
+      - name: config
+        configMap:
+          name: adapter-config

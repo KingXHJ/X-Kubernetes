@@ -1,0 +1,25 @@
+apiVersion: v1                      # Required
+kind: Srevice                       # Required
+metadata:                           # Required
+  name: string                      # Required
+  namespace: string                 # Required
+  labels:
+    - name: string
+  annotations:
+    - name: string
+spec:                               # Required
+  selector: []                      # Required
+  type: string                      # Required
+  clusterIP: string
+  sessionAffinity: string
+  ports:
+  - name: string
+    protocol: string
+    port: int
+    targetPort: int
+    nodePort: int
+  status: 
+    loadBalancer:
+      ingress:
+        ip: string
+        hostname: string

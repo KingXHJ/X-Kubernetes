@@ -1,0 +1,4 @@
+# Pod: <pod-ip>.<namespace>.pod.<cluster-domain>
+# Example: 10-0-95-63.default.pod.cluster.local
+
+# Deployment/DaemonSet Pod: <pod-ip>.<deployment/daemonset-name>.<namespace>.svc.<cluster-domain>

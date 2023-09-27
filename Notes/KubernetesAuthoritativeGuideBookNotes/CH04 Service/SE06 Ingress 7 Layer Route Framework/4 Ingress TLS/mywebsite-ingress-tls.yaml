@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: mywebsite-ingress-tls
+spec:
+  tls:
+  - hosts:
+    - mywebsite.com
+    secretName: mywebsite-ingress-secret
+  rules:
+  - host: mywebsite.com
+    http:
+      paths:
+      - path: /demo
+        pathType: Prefix
+        backend:
+          service:
+            name: webapp
+            port:
+              number: 8080
