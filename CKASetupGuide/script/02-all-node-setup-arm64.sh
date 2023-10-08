@@ -1,4 +1,3 @@
-
 echo '--------------------Preparing Worker Node---------------'
 
 echo '-------------------- 1 IP table --------------------'
@@ -28,10 +27,10 @@ echo '-------------------- 2 Install Docker and make it a deamon ---------------
 
 # https://docs.docker.com/engine/install/ubuntu/
 
-sudo apt-get remove docker docker-engine docker.io containerd runc
-sudo apt-get update
+sudo apt remove docker docker-engine docker.io containerd runc
+sudo apt update
 
-sudo apt-get install -y \
+sudo apt install -y \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -49,11 +48,11 @@ sudo mkdir /etc/apt/keyrings/
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker-archive-keyring.gpg
 
 echo \
-  "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  "deb [arch=arm64 signed-by=/etc/apt/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 
-sudo apt-get update && sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+sudo apt update && sudo apt install -y docker-ce docker-ce-cli containerd.io
 
 sudo mkdir /etc/docker
 cat <<EOF | sudo tee /etc/docker/daemon.json
@@ -75,7 +74,7 @@ sudo systemctl restart docker
 
 echo '-------------------- 3 kubelet kubeadm kubectl--------------------'
 
-sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates curl
+sudo apt update && sudo apt install -y apt-transport-https ca-certificates curl
 
 #sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
 
@@ -87,7 +86,7 @@ echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://a
 
 k8sVersion=1.24.15-00
 
-sudo apt-get update && sudo apt-get install -y kubelet=$k8sVersion kubeadm=$k8sVersion kubectl=$k8sVersion
+sudo apt update && sudo apt install -y kubelet=$k8sVersion kubeadm=$k8sVersion kubectl=$k8sVersion
 sudo apt-mark hold kubelet kubeadm kubectl
 
 sudo crictl config runtime-endpoint unix:///run/containerd/containerd.sock
