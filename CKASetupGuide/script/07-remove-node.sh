@@ -10,5 +10,5 @@ kubectl delete node <node name>
 # 在已经移除的节点 scm-node-prd-01上执行 kubeadm reset：
 sudo rm -rf /etc/cni/net.d
 sudo rm -rf $HOME/.kube/config
-sudo rm -rf /etc/kubernetes/
+
 sudo kubeadm reset
