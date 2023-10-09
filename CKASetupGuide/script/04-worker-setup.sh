@@ -5,6 +5,8 @@ sudo rm /etc/containerd/config.toml
 
 sudo systemctl restart containerd
 
+# 注：安装kubelet完成后，kubelet是不启动的，不能直接systemctl start kubelet，加入节点或初始化为master后即可启动成功
+
 #sudo kubeadm join 10.230.0.10:6443 --token g0fibk.lkzwifjkc7evhbcd \
 #        --discovery-token-ca-cert-hash sha256:f911271ae9a7760dec1ec3cdf73802bc9758a2a51ec2e20ce7e0809a00b80952
 # kubeadm token list 

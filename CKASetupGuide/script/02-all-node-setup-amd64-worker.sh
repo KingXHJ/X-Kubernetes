@@ -95,9 +95,9 @@ sudo apt-mark hold kubelet kubeadm kubectl
 sudo crictl config runtime-endpoint unix:///run/containerd/containerd.sock
 sudo crictl config image-endpoint unix:///run/containerd/containerd.sock
 
-# # worker node
-# sudo rm /etc/containerd/config.toml
-# sudo systemctl restart containerd
+# worker node
+sudo rm /etc/containerd/config.toml
+sudo systemctl restart containerd
 
 # # 删除kubernetes组件
 # sudo apt-mark unhold kubelet kubeadm kubectl

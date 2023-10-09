@@ -5,9 +5,17 @@ sudo rm /etc/containerd/config.toml
 
 sudo systemctl restart containerd
 
-# Raspberry Pi 兼容性问题
-echo 'net.ifnames=0 dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=LABEL=writable rootfstype=ext4 elevator=deadline cgroup_enable=memory cgroup_memory=1 rootwait fixrtc' | sudo tee /boot/firmware/cmdline.txt
-reboot
+# # Raspberry Pi 兼容性问题
+# echo 'net.ifnames=0 dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=LABEL=writable rootfstype=ext4 elevator=deadline cgroup_enable=memory cgroup_memory=1 rootwait fixrtc' | sudo tee /boot/firmware/cmdline.txt
+# reboot
+
+# # 需要reset kubeadm
+# sudo rm -rf /etc/cni/net.d
+# sudo rm -rf $HOME/.kube/config
+# sudo rm -rf /etc/kubernetes/
+# sudo kubeadm reset
+
+
 
 # run kubeadm
 # sudo kubeadm init --kubernetes-version=v1.24.15 --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=<本机IP地址>

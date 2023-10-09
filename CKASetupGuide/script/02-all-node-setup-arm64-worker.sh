@@ -48,7 +48,7 @@ sudo mkdir /etc/apt/keyrings/
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker-archive-keyring.gpg
 
 echo \
-  "deb [arch=amd64 signed-by=/etc/apt/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  "deb [arch=arm64 signed-by=/etc/apt/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 
@@ -95,9 +95,10 @@ sudo apt-mark hold kubelet kubeadm kubectl
 sudo crictl config runtime-endpoint unix:///run/containerd/containerd.sock
 sudo crictl config image-endpoint unix:///run/containerd/containerd.sock
 
-# # worker node
-# sudo rm /etc/containerd/config.toml
-# sudo systemctl restart containerd
+
+# worker node
+sudo rm /etc/containerd/config.toml
+sudo systemctl restart containerd
 
 # # 删除kubernetes组件
 # sudo apt-mark unhold kubelet kubeadm kubectl

@@ -27,7 +27,7 @@ echo '-------------------- 2 Install Docker and make it a deamon ---------------
 
 # https://docs.docker.com/engine/install/ubuntu/
 
-sudo apt remove docker docker-engine docker.io containerd runc
+sudo apt remove -y docker docker-engine docker.io containerd runc
 sudo apt update
 
 sudo apt install -y \
@@ -74,6 +74,9 @@ sudo systemctl restart docker
 
 echo '-------------------- 3 kubelet kubeadm kubectl--------------------'
 
+# 关闭交换分区
+sudo swapoff -a
+
 sudo apt update && sudo apt install -y apt-transport-https ca-certificates curl
 
 #sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
@@ -91,3 +94,13 @@ sudo apt-mark hold kubelet kubeadm kubectl
 
 sudo crictl config runtime-endpoint unix:///run/containerd/containerd.sock
 sudo crictl config image-endpoint unix:///run/containerd/containerd.sock
+
+
+# # worker node
+# sudo rm /etc/containerd/config.toml
+# sudo systemctl restart containerd
+
+# # 删除kubernetes组件
+# sudo apt-mark unhold kubelet kubeadm kubectl
+# k8sVersion=1.24.15-00
+# sudo apt remove -y kubelet=$k8sVersion kubeadm=$k8sVersion kubectl=$k8sVersion
