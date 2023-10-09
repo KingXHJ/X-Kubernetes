@@ -1,6 +1,8 @@
 # History
 
+
 ![00 kubernetes](./pictures/00-kubernetes.JPG)
+
 
 ## 目录
 - [2013](#2013)
@@ -14,8 +16,10 @@
 ## 2013 
 1. Docker 开源
 
+
 ## 2014 
 1. Swarm 的提出
+
 
 ## 2015 
 1. K8s 开源
@@ -23,9 +27,11 @@
 1. CoreOS 拥有开源 ETCD
 1. Google 和 RedHat 提出 CNCF
 
+
 ## 2016
 1. Docker 放弃 Swarm
 1. Docker 将容器编排功能完全集成在 Docker 中
+
 
 ## 2017
 1. Docker 捐赠 Containerd（容器运行时）
@@ -33,6 +39,7 @@
 1. Docker 公司的商业产品将占有 Docker 的注册商标
 1. Docker 企业版中内置 Kubernetes 项目
 1. kubeadm诞生
+
 
 ## 2018
 1. RedHat 宣布斥巨资 2.5 亿美元收购 CoreOS
