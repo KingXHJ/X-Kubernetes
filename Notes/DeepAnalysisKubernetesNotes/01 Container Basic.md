@@ -147,3 +147,6 @@
         - 如：Pod、Job、CronJob等，用来描述用户试图管理的应用
     1. 服务对象
         - 如：Service、Secret、Horizontal Pod Autoscaler等，用来负责具体的平台级功能
+
+
+![02 Kubernetes Setup](./02%20Kubernetes%20Setup.md)

@@ -15,3 +15,6 @@
 
 ## 3 绝不仅仅是安全：Kata Containers与gVisor
 
+
+
+![08 Kubernetes Container Monitoring and Logging](./08%20Kubernetes%20Container%20Monitoring%20and%20Logging.md)

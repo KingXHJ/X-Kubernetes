@@ -35,3 +35,6 @@
 
 ## 8 谈谈Service与Ingress
 
+
+
+![06 Kubernetes Job Scheduling and Resource Management](./06%20Kubernetes%20Job%20Scheduling%20and%20Resource%20Management.md)
