@@ -17,4 +17,4 @@
 
 
 
-![08 Kubernetes Container Monitoring and Logging](./08%20Kubernetes%20Container%20Monitoring%20and%20Logging.md)
+[08 Kubernetes Container Monitoring and Logging](./08%20Kubernetes%20Container%20Monitoring%20and%20Logging.md)

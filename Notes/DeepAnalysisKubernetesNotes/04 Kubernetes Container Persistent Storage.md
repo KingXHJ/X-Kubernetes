@@ -242,4 +242,4 @@
     1. 上述过程完成后，运行在宿主机 A 上的 kubelet，就会通过 VolumeManagerReconciler 控制循环，发现当前宿主机上有一个 Volume 对应的存储设备（比如磁盘）已经被 Attach 到了某个设备目录下。于是 kubelet 就会调用同一台宿主机上的 CSI 插件的 CSI Node 服务的 NodeStageVolume 和 NodePublishVolume 方法，完成这个 Volume 的“Mount 阶段”。
 
 
-![05 Kubernetes Container Network](./05%20Kubernetes%20Container%20Network.md)
+[05 Kubernetes Container Network](./05%20Kubernetes%20Container%20Network.md)

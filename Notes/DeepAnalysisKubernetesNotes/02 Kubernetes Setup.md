@@ -251,4 +251,4 @@
     ```
 
 
-![03 Container Layout and Kubernetes Job Management](./03%20Container%20Layout%20and%20Kubernetes%20Job%20Management.md)
+[03 Container Layout and Kubernetes Job Management](./03%20Container%20Layout%20and%20Kubernetes%20Job%20Management.md)
