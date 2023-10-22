@@ -16,8 +16,9 @@ Using kubeadm
   - [4-Join Worker Node](#4-join-worker-node)
   - [5-Confirm the Setup](#5-confirm-the-setup)
   - [6-Create new Azure worker VM](#6-create-new-azure-worker-vm)
-  - [7-Some useful Azure CLI Commands](#7-some-useful-azure-cli-commands)
-  - [8-Clean up Azure Resources](#8-clean-up-azure-resources)
+  - [7-Remove nodes](#7-remove-nodes)
+  - [8-Some useful Azure CLI Commands](#8-some-useful-azure-cli-commands)
+  - [9-Clean up Azure Resources](#9-clean-up-azure-resources)
 - [Resources](#resources)
 
 ## Consideration
@@ -61,7 +62,13 @@ Install & Configure [as super user]
 - Docker
 - Kubectl, Kubeadm, Kubelet
 
-Here is the [Script](script/02-all-node-setup.sh)
+Here is the [Master amd64 Script](script/02-all-node-setup-amd64.sh)
+
+Here is the [Master arm64 Script](script/02-all-node-setup-arm64.sh)
+
+Here is the [Worker amd64 Script](script/02-all-node-setup-amd64-worker.sh)
+
+Here is the [Worker arm64 Script](script/02-all-node-setup-arm64-worker.sh)
 
 ### 3-Master Node
 
@@ -85,6 +92,8 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
   `kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml`
 
 ### 4-Join Worker Node
+
+**In script of Step2 have include the work in this step!!!** 
 
 Using the token generated from previous step connect this to the Kubernetes master.
 
@@ -138,7 +147,12 @@ kubectl get pods
 
 Create a new worker VM with [script](./script/06-add-new-worker.sh)
 
-### 7-Some useful Azure CLI Commands
+
+### 7-Remove nodes
+
+Remove a nodes can use this [Script](./script/07-remove-node.sh)
+
+### 8-Some useful Azure CLI Commands
 
 Get the list of running VMs in a Resource Group
 
@@ -164,7 +178,7 @@ resourceGroup='rg-cka2'
 az vm deallocate --ids $(az vm list -g $resourceGroup --query "[].id" -o tsv)
 ```
 
-### 8-Clean up Azure Resources
+### 9-Clean up Azure Resources
 
 If you delete the resource group it will delete all the resources inside
 
