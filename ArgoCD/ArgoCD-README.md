@@ -20,7 +20,7 @@ Argo CD has been developed under the Cloud Native Computing Foundation’s (CNCF
     ```
 
 
-1. Login, then chang user name and password using the [script](./script/02-argocd-account.sh)
+1. Login, then chang user name and password using the [script](./script/02-argocd-account.sh). **注意文件[03-argocd-insecure.yaml](./yaml/03-argocd-insecure.yaml)中，image的版本要不要换**
 
 
 1. Access The Argo CD API Server

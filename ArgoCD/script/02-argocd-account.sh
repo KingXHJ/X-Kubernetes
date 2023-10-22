@@ -35,3 +35,7 @@ kubectl delete secret argocd-initial-admin-secret -n argocd
 
 # 9 Generate New Token for New User
 argocd account generate-token --account $ARGOCD_USERNAME
+
+# 10 Set ArgoCD into the "insecure" mode
+kubectl patch deployment argocd-server -n argocd --type merge --patch-file 03-argocd-insecure.yaml
+# 其中，“image: quay.io/argoproj/argocd:v2.8.4” 是argocd-server的镜像，可以根据实际情况进行修改。但是必须添加！！！
