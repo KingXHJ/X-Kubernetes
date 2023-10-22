@@ -70,3 +70,10 @@ kubectl cert-manager check api
 
 # helm repo update
 # helm upgrade --version <new version> cert-manager jetstack/cert-manager
+
+# 6 Delete Cert-Manager
+# URL: https://cert-manager.io/docs/installation/helm/#uninstalling
+
+# helm --namespace cert-manager delete cert-manager
+# kubectl delete namespace cert-manager
+# kubectl delete -f https://github.com/cert-manager/cert-manager/releases/download/v1.12.0/cert-manager.crds.yaml
