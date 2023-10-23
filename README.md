@@ -38,11 +38,16 @@ My k8s study
 
 
 ## Cert Manager & Let's Ingress
-- [Cert Manager & Let's Encrypt](./CertManager&LetsEncrypt/CertManager&LetsEncrypt-README.md)
+- [Install Cert Manager & Let's Encrypt](./CertManager&LetsEncrypt/CertManager&LetsEncrypt-README.md)
 
 
 ## mkcert
-
+- [Install mkcert](./mkcert/mkcert-README.md)
+1. 20231023
+   - 实验现象：
+      1. ingress规则和secretname都在argocd的namespace下是好使的（指，将mkcert的ca.crt导入浏览器中，浏览器认为它是安全的）
+      1. ingress规则和secretname都在ingress-nginx的namespace下，nginx会报```503 Service Temporarily Unavailable```的错误
+      1. ingress规则在argocd的namespace下，secretname在ingress-nginx的namespace下，浏览器会验证nginx的secret：ingress-nginx-admission里的证书，并不会去用ingress规则yaml文件中配置的secretname
 
 
 ## ArgoCD

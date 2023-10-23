@@ -13,6 +13,7 @@
 1. When Nginx Ingress has been [setup](../Ingress/Ingress-README.md), set an ingress for ArgoCD
     ```sh
 
-    kubectl apply -f 03-argocd-nginx-ingress.yaml
+    kubectl apply -f 03-argocd-ingress-nginx-passthrough.yaml
+    kubectl apply -f 03-argocd-ingress-nginx-termination-at-ingress-controller.yaml
     ```
 

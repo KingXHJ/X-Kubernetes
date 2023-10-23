@@ -36,6 +36,9 @@ Argo CD has been developed under the Cloud Native Computing Foundation’s (CNCF
     # Change Service to NodePort
     kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "NodePort"}}' 
 
+    # Change Service to ClusterIP
+    kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "ClusterIP"}}'
+
     # Check Ports
     kubectl get svc -n argocd
 
