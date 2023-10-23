@@ -66,7 +66,14 @@ $ kubectl create -n argocd secret tls argocd-ingress-grpc --cert=/path/to/cert.p
 ```
 
 举例：
+```bash
 
+$ kubectl create -n argocd secret tls argocd-ingress-http  --cert=/home/ubuntu/Kubernetes/Ingress-Nginx/Ingress-Nginx-Secret/cert.pem --key=/home/ubuntu/Kubernetes/Ingress-Nginx/Ingress-Nginx-Secret/key.pem
+
+$ kubectl create -n argocd secret tls argocd-ingress-grpc  --cert=/home/ubuntu/Kubernetes/Ingress-Nginx/Ingress-Nginx-Secret/cert.pem --key=/home/ubuntu/Kubernetes/Ingress-Nginx/Ingress-Nginx-Secret/key.pem
+```
+
+or
 
 ```bash
 
