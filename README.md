@@ -48,7 +48,11 @@ My k8s study
       1. ingress规则和secretname都在argocd的namespace下是好使的（指，将mkcert的ca.crt导入浏览器中，浏览器认为它是安全的）
       1. ingress规则和secretname都在ingress-nginx的namespace下，nginx会报```503 Service Temporarily Unavailable```的错误
       1. ingress规则在argocd的namespace下，secretname在ingress-nginx的namespace下，浏览器会验证nginx的secret：ingress-nginx-admission里的证书，并不会去用ingress规则yaml文件中配置的secretname
-
+   - 意外情况：
+      1. 上午采用```kubectl create secret generic```命令，实现了https的认证，但是到了下午，证书又变成了kubernetes自签名了，不是mkcert的自签名了
+      1. 下午采用```kubectl create secret tls```命令
+1. 分发CA的[LLM Prompt](./CA-prompt.txt)
+   
 
 ## ArgoCD
 - [Install ArgoCD](./ArgoCD/ArgoCD-README.md)

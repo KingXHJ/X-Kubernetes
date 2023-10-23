@@ -1,0 +1,38 @@
+I have a bunch of computers ( abbr. Node), which need to be updated to trust my self-signatured ROOT CA. The CA related cert, private key are all generated already (named as CA.cert, CA.pem). All the nodes are debian 10 (or Ubuntu 20.04 LTS). Could you help me generate an ansible playbook to deploy these onto target Nodes, so that all the Pods can trust the self-signed CA as trust root?
+
+
+---
+Basing the theory how the certificate is validated by K8s, could you help me check whether this solution enable all the pods pickup the updated CA as designated? If not, how to achieve this goal?
+
+
+---
+Thanks for your answers, my follow-up question is: how should the regular Pod (which doesn't have the host Node's CA file mounted) pick up the new ones?
+
+
+---
+You're right, regular pods that don't mount the host's CA certificate files will not automatically pick up the new CA. Here are a couple ways to address that:
+
+1. Use a sidecar container that mounts the host CA certificates. Then your app container can use the sidecar's CA certs. For example:
+
+```yaml
+spec:
+  containers:
+  - name: app
+    image: app
+  - name: ca-cert-sidecar
+    image: busybox
+    command: [ "sleep", "infinity" ]  
+    volumeMounts:
+    - name: ca-certs
+      mountPath: /etc/ssl/certs
+  volumes:
+  - name: ca-certs
+    hostPath:
+      path: /etc/ssl/certs
+```
+
+2. Build a custom base image with the CA certs baked in. You can extend your app image and COPY or ADD the host CA certs into the base image. Rebuild this base image to pick up new CA certs.
+
+3. Periodically restart pods on a schedule to force them to remount the host certs. Not ideal but an option.
+
+I'd recommend option 1 or 2 so pods proactively pick up the new CA rather than relying on restarts. Let me know if you need any help implementing one of those approaches!
