@@ -14,6 +14,9 @@
 
 
 ## Start to Creat a CA and Certificates
+
+**"*.example.com"只能代表三级域名，四级及往后的域名无法代理**
+
 ```bash
 
 $ mkcert -install
