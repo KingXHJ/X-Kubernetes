@@ -1,5 +1,13 @@
 # Setup mkcert
 
+## 目录
+- [Install mkcert](#install-mkcert)
+- [Start to Creat a CA and Certificates](#start-to-creat-a-ca-and-certificates)
+- [提取CA的ca.crt](#提取ca的cacrt)
+- [Create Secret for ingress-nginx](#create-secret-for-ingress-nginx)
+- [Delete Secret](#delete-secret)
+- [Delete CA](#delete-ca)
+
 
 ## Install mkcert
 - [Install mkcert](./script/01-mkcert-install.sh)

@@ -3,6 +3,11 @@ Argo CD is a declarative continuous delivery tool for Kubernetes applications. I
 
 Argo CD has been developed under the Cloud Native Computing Foundation’s (CNCF) Argo Project- a project, especially for Kubernetes application lifecycle management. The project also includes Argo Workflow, Argo Rollouts, and Argo Events.. Each solves a particular set of problems in the agile development process and make the Kubernetes application delivery scalable and secure.
 
+
+## 目录
+- [Install ArgoCD](#install-argocd)
+
+
 ## Install ArgoCD
 1. 提前准备好
     1. 01-argocd-cm.yaml
