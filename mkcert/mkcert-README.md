@@ -44,8 +44,8 @@ The certificate is at "./example.com+5.pem" and the key at "./example.com+5-key.
 # $ mv ./example.com+5.pem ./cert.pem
 # $ mv ./example.com+5-key.pem ./key.pem
 
-$ mv ./argocd.ingress.kingxhj.eu.org+4.pem ./cert.pem
-$ mv ./argocd.ingress.kingxhj.eu.org+4-key.pem ./key.pem
+$ mv ./argocd.ingress.kingxhj.eu.org+1.pem ./cert.pem
+$ mv ./argocd.ingress.kingxhj.eu.org+1-key.pem ./key.pem
 ```
 
 
@@ -79,9 +79,9 @@ $ kubectl create -n argocd secret tls argocd-ingress-grpc --cert=/path/to/cert.p
 举例：
 ```bash
 
-$ kubectl create -n argocd secret tls argocd-ingress-http  --cert=/home/ubuntu/Kubernetes/Ingress-Nginx/ArgoCD-Ingress-Nginx-Secret/argocd.ingress.kingxhj.eu.org+4.pem --key=/home/ubuntu/Kubernetes/Ingress-Nginx/ArgoCD-Ingress-Nginx-Secret/argocd.ingress.kingxhj.eu.org+4-key.pem
+$ kubectl create -n argocd secret tls argocd-ingress-http  --cert=/home/ubuntu/Kubernetes/Ingress-Nginx/ArgoCD-Ingress-Nginx-Secret/argocd.ingress.kingxhj.eu.org+4.pem --key=/home/ubuntu/Kubernetes/Ingress-Nginx/ArgoCD-Ingress-Nginx-Secret/argocd.ingress.kingxhj.eu.org+1-key.pem
 
-$ kubectl create -n argocd secret tls argocd-ingress-grpc  --cert=/home/ubuntu/Kubernetes/Ingress-Nginx/ArgoCD-Ingress-Nginx-Secret/argocd.ingress.kingxhj.eu.org+4.pem --key=/home/ubuntu/Kubernetes/Ingress-Nginx/ArgoCD-Ingress-Nginx-Secret/argocd.ingress.kingxhj.eu.org+4-key.pem
+$ kubectl create -n argocd secret tls argocd-ingress-grpc  --cert=/home/ubuntu/Kubernetes/Ingress-Nginx/ArgoCD-Ingress-Nginx-Secret/argocd.ingress.kingxhj.eu.org+4.pem --key=/home/ubuntu/Kubernetes/Ingress-Nginx/ArgoCD-Ingress-Nginx-Secret/argocd.ingress.kingxhj.eu.org+1-key.pem
 ```
 
 or
