@@ -25,7 +25,7 @@ The local CA is now installed in the system trust store! ⚡️
 The local CA is now installed in the Firefox trust store (requires browser restart)! 🦊
 
 # $ mkcert example.com "*.example.com" example.test localhost 127.0.0.1 ::1
-$ mkcert argocd.ingress.kingxhj.eu.org "*.argocd.ingress.kingxhj.eu.org" localhost 127.0.0.1 ::1
+$ mkcert argocd.ingress.kingxhj.eu.org "*.argocd.ingress.kingxhj.eu.org"
 
 Created a new certificate valid for the following names 📜
  - "example.com"
