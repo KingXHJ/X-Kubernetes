@@ -19,7 +19,9 @@ default user password: prom-operator
 
 参考[文件](../mkcert/mkcert-README.md)
 
-1. 设置Ingress规则
+1. 设置[Ingress规则](./yaml/01-prometheus-ingress-nginx-termination-at-ingress-controller.yaml)
+
+**非常有趣的是，prometheus不能使用```spec.rules.http.paths.backend.service.port.name=http```，只能用```spec.rules.http.paths.backend.service.port.number=80```**
 
 ```bash
 

@@ -17,7 +17,7 @@ spec:
           service:
             name: prometheus-operator-kube-p-prometheus
             port:
-              name: http
+              number: 9090
     host: prometheus.ingress.kingxhj.eu.org
   - http:
       paths:
@@ -27,7 +27,7 @@ spec:
           service:
             name: prometheus-operator-grafana
             port:
-              name: http
+              number: 80
     host: grafana.prometheus.ingress.kingxhj.eu.org
   tls:
   - hosts:
