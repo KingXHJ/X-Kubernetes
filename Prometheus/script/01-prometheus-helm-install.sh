@@ -15,6 +15,15 @@ helm install prometheus-operator prometheus-community/kube-prometheus-stack -n p
 
 # Test Prometheus
 # kubectl port-forward -n prometheus-operator svc/prometheus-operator-grafana 3000:80
+# Change Grafana Service to NodePort
+# kubectl patch svc prometheus-operator-grafana -n prometheus-operator -p '{"spec": {"type": "NodePort"}}'
+# Change Grafana Service to ClusterIP
+# kubectl patch svc prometheus-operator-grafana -n prometheus-operator -p '{"spec": {"type": "ClusterIP"}}'
+# Change Prometheus UI Service to NodePort
+# kubectl patch svc prometheus-operator-kube-p-prometheus -n prometheus-operator -p '{"spec": {"type": "NodePort"}}'
+# Change Prometheus UI Service to ClusterIP
+# kubectl patch svc prometheus-operator-kube-p-prometheus -n prometheus-operator -p '{"spec": {"type": "ClusterIP"}}'
 
 # Delete Prometheus
 # helm uninstall prometheus-operator -n prometheus-operator
+# kubectl delete namespace prometheus-operator

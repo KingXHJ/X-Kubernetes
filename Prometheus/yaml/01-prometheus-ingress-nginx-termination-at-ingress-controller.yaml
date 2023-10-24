@@ -1,0 +1,36 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: prometheus-http-ingress
+  namespace: prometheus-operator
+  annotations:
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
+spec:
+  ingressClassName: nginx
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: prometheus-operator-kube-p-prometheus
+            port:
+              name: http
+    host: prometheus.ingress.kingxhj.eu.org
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: prometheus-operator-grafana
+            port:
+              name: http
+    host: grafana.prometheus.ingress.kingxhj.eu.org
+  tls:
+  - hosts:
+    - prometheus.ingress.kingxhj.eu.org
+    - grafana.prometheus.ingress.kingxhj.eu.org
+    secretName: prometheus-ingress-http

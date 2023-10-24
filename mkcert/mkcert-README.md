@@ -22,7 +22,7 @@ The local CA is now installed in the system trust store! ⚡️
 The local CA is now installed in the Firefox trust store (requires browser restart)! 🦊
 
 # $ mkcert example.com "*.example.com" example.test localhost 127.0.0.1 ::1
-$ mkcert argocd.kingxhj.eu.org "*.argocd.kingxhj.eu.org" localhost 127.0.0.1 ::1
+$ mkcert ingress.kingxhj.eu.org "*.ingress.kingxhj.eu.org" localhost 127.0.0.1 ::1
 
 Created a new certificate valid for the following names 📜
  - "example.com"
@@ -41,8 +41,8 @@ The certificate is at "./example.com+5.pem" and the key at "./example.com+5-key.
 # $ mv ./example.com+5.pem ./cert.pem
 # $ mv ./example.com+5-key.pem ./key.pem
 
-$ mv ./argocd.kingxhj.eu.org+4.pem ./cert.pem
-$ mv ./argocd.kingxhj.eu.org+4-key.pem ./key.pem
+$ mv ./ingress.kingxhj.eu.org+4.pem ./cert.pem
+$ mv ./ingress.kingxhj.eu.org+4-key.pem ./key.pem
 ```
 
 
@@ -76,9 +76,9 @@ $ kubectl create -n argocd secret tls argocd-ingress-grpc --cert=/path/to/cert.p
 举例：
 ```bash
 
-$ kubectl create -n argocd secret tls argocd-ingress-http  --cert=/home/ubuntu/Kubernetes/Ingress-Nginx/Ingress-Nginx-Secret/cert.pem --key=/home/ubuntu/Kubernetes/Ingress-Nginx/Ingress-Nginx-Secret/key.pem
+$ kubectl create -n argocd secret tls argocd-ingress-http  --cert=/home/ubuntu/Kubernetes/Ingress-Nginx/Ingress-Nginx-Secret/ingress.kingxhj.eu.org+4.pem --key=/home/ubuntu/Kubernetes/Ingress-Nginx/Ingress-Nginx-Secret/ingress.kingxhj.eu.org+4-key.pem
 
-$ kubectl create -n argocd secret tls argocd-ingress-grpc  --cert=/home/ubuntu/Kubernetes/Ingress-Nginx/Ingress-Nginx-Secret/cert.pem --key=/home/ubuntu/Kubernetes/Ingress-Nginx/Ingress-Nginx-Secret/key.pem
+$ kubectl create -n argocd secret tls argocd-ingress-grpc  --cert=/home/ubuntu/Kubernetes/Ingress-Nginx/Ingress-Nginx-Secret/ingress.kingxhj.eu.org+4.pem --key=/home/ubuntu/Kubernetes/Ingress-Nginx/Ingress-Nginx-Secret/ingress.kingxhj.eu.org+4-key.pem
 ```
 
 or

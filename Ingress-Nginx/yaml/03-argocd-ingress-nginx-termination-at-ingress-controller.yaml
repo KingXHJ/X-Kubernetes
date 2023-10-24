@@ -18,10 +18,10 @@ spec:
             name: argocd-server
             port:
               name: http
-    host: argocd.kingxhj.eu.org
+    host: argocd.ingress.kingxhj.eu.org
   tls:
   - hosts:
-    - argocd.kingxhj.eu.org
+    - argocd.ingress.kingxhj.eu.org
     secretName: argocd-ingress-http
 
 ---
@@ -45,8 +45,8 @@ spec:
             name: argocd-server
             port:
               name: https
-    host: grpc.argocd.kingxhj.eu.org
+    host: grpc.argocd.ingress.kingxhj.eu.org
   tls:
   - hosts:
-    - grpc.argocd.kingxhj.eu.org
+    - grpc.argocd.ingress.kingxhj.eu.org
     secretName: argocd-ingress-grpc
