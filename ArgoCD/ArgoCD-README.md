@@ -17,18 +17,27 @@ Argo CD has been developed under the Cloud Native Computing Foundation’s (CNCF
 
 1. [Install ArgoCD](./script/01-argocd-install.sh)
 
-
 1. Check Resource
     ```sh
     
     kubectl get all -n argocd
     ```
 
+1. Clean Up
+    ```sh
 
-1. Login, then chang user name and password using the [script](./script/02-argocd-account.sh). **注意文件[03-argocd-insecure.yaml](./yaml/03-argocd-insecure.yaml)中，image的版本要不要换**
+    kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+    kubectl delete namespace argocd
+    ```
 
 
-1. Access The Argo CD API Server
+## Set users
+
+Login, then chang user name and password using the [script](./script/02-argocd-account.sh). **注意文件[03-argocd-insecure.yaml](./yaml/03-argocd-insecure.yaml)中，image的版本要不要换**
+
+
+## Config way to access ArgoCD API Server
+1. Access The ArgoCD API Server
 
     ```sh
 
@@ -50,7 +59,7 @@ Argo CD has been developed under the Cloud Native Computing Foundation’s (CNCF
     ```
 
 
-1. ArgoCD Change To UI Mode
+1. ArgoCD on Cloud Change To UI Mode
     ```sh
 
     az network nsg rule create -g rg-cka -n argocd-http-inbound --access allow --destination-address-prefixes '*' --destination-port-range <NodePort> --direction inbound --nsg-name cka-nsg --protocol '*' --source-address-prefixes '*' --source-port-range '*' --priority 1002
@@ -58,9 +67,3 @@ Argo CD has been developed under the Cloud Native Computing Foundation’s (CNCF
     ```
 
 
-1. Clean Up
-    ```sh
-
-    kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-    kubectl delete namespace argocd
-    ```
