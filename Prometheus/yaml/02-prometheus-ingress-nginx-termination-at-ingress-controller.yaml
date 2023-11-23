@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: prometheus-http-ingress
+  name: prometheus-http-xingress
   namespace: prometheus-operator
   annotations:
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
@@ -18,7 +18,7 @@ spec:
             name: prometheus-operator-kube-p-prometheus
             port:
               number: 9090
-    host: prometheus.ingress.kingxhj.eu.org
+    host: prometheus.xingress.kingxhj.eu.org
   - http:
       paths:
       - path: /
@@ -28,9 +28,9 @@ spec:
             name: prometheus-operator-grafana
             port:
               number: 80
-    host: grafana.prometheus.ingress.kingxhj.eu.org
+    host: grafana.prometheus.xingress.kingxhj.eu.org
   tls:
   - hosts:
-    - prometheus.ingress.kingxhj.eu.org
-    - grafana.prometheus.ingress.kingxhj.eu.org
-    secretName: prometheus-ingress-http
+    - prometheus.xingress.kingxhj.eu.org
+    - grafana.prometheus.xingress.kingxhj.eu.org
+    secretName: prometheus-xingress-http

@@ -25,7 +25,7 @@ The local CA is now installed in the system trust store! ⚡️
 The local CA is now installed in the Firefox trust store (requires browser restart)! 🦊
 
 # $ mkcert example.com "*.example.com" example.test localhost 127.0.0.1 ::1
-$ mkcert argocd.ingress.kingxhj.eu.org "*.argocd.ingress.kingxhj.eu.org"
+$ mkcert argocd.xingress.kingxhj.eu.org "*.argocd.xingress.kingxhj.eu.org"
 
 Created a new certificate valid for the following names 📜
  - "example.com"
@@ -44,8 +44,8 @@ The certificate is at "./example.com+5.pem" and the key at "./example.com+5-key.
 # $ mv ./example.com+5.pem ./cert.pem
 # $ mv ./example.com+5-key.pem ./key.pem
 
-$ mv ./argocd.ingress.kingxhj.eu.org+1.pem ./cert.pem
-$ mv ./argocd.ingress.kingxhj.eu.org+1-key.pem ./key.pem
+$ mv ./argocd.xingress.kingxhj.eu.org+1.pem ./cert.pem
+$ mv ./argocd.xingress.kingxhj.eu.org+1-key.pem ./key.pem
 ```
 
 
@@ -72,25 +72,25 @@ $ kubectl create -n argocd secret tls argocd-repo-server-tls --cert=/path/to/cer
 
 or
 
-$ kubectl create -n argocd secret tls argocd-ingress-http --cert=/path/to/cert.pem --key=/path/to/key.pem
-$ kubectl create -n argocd secret tls argocd-ingress-grpc --cert=/path/to/cert.pem --key=/path/to/key.pem
+$ kubectl create -n argocd secret tls argocd-xingress-http --cert=/path/to/cert.pem --key=/path/to/key.pem
+$ kubectl create -n argocd secret tls argocd-xingress-grpc --cert=/path/to/cert.pem --key=/path/to/key.pem
 ```
 
 举例：
 ```bash
 
-$ kubectl create -n argocd secret tls argocd-ingress-http  --cert=/home/ubuntu/Kubernetes/Ingress-Nginx/ArgoCD-Ingress-Nginx-Secret/argocd.ingress.kingxhj.eu.org+1.pem --key=/home/ubuntu/Kubernetes/Ingress-Nginx/ArgoCD-Ingress-Nginx-Secret/argocd.ingress.kingxhj.eu.org+1-key.pem
+$ kubectl create -n argocd secret tls argocd-xingress-http  --cert=/home/ubuntu/Kubernetes/Ingress-Nginx/ArgoCD-Ingress-Nginx-Secret/argocd.xingress.kingxhj.eu.org+1.pem --key=/home/ubuntu/Kubernetes/Ingress-Nginx/ArgoCD-Ingress-Nginx-Secret/argocd.xingress.kingxhj.eu.org+1-key.pem
 
-$ kubectl create -n argocd secret tls argocd-ingress-grpc  --cert=/home/ubuntu/Kubernetes/Ingress-Nginx/ArgoCD-Ingress-Nginx-Secret/argocd.ingress.kingxhj.eu.org+1.pem --key=/home/ubuntu/Kubernetes/Ingress-Nginx/ArgoCD-Ingress-Nginx-Secret/argocd.ingress.kingxhj.eu.org+1-key.pem
+$ kubectl create -n argocd secret tls argocd-xingress-grpc  --cert=/home/ubuntu/Kubernetes/Ingress-Nginx/ArgoCD-Ingress-Nginx-Secret/argocd.xingress.kingxhj.eu.org+1.pem --key=/home/ubuntu/Kubernetes/Ingress-Nginx/ArgoCD-Ingress-Nginx-Secret/argocd.xingress.kingxhj.eu.org+1-key.pem
 ```
 
 or
 
 ```bash
 
-$ kubectl create -n argocd secret generic argocd-ingress-http  --from-file=/home/ubuntu/Kubernetes/Ingress-Nginx/ArgoCD-Ingress-Nginx-Secret/cert.pem --from-file=/home/ubuntu/Kubernetes/Ingress-Nginx/ArgoCD-Ingress-Nginx-Secret/key.pem --from-file=/home/ubuntu/Kubernetes/Ingress-Nginx/ArgoCD-Ingress-Nginx-Secret/ca.crt
+$ kubectl create -n argocd secret generic argocd-xingress-http  --from-file=/home/ubuntu/Kubernetes/Ingress-Nginx/ArgoCD-Ingress-Nginx-Secret/cert.pem --from-file=/home/ubuntu/Kubernetes/Ingress-Nginx/ArgoCD-Ingress-Nginx-Secret/key.pem --from-file=/home/ubuntu/Kubernetes/Ingress-Nginx/ArgoCD-Ingress-Nginx-Secret/ca.crt
 
-$ kubectl create -n argocd secret generic argocd-ingress-grpc  --from-file=/home/ubuntu/Kubernetes/Ingress-Nginx/ArgoCD-Ingress-Nginx-Secret/cert.pem --from-file=/home/ubuntu/Kubernetes/Ingress-Nginx/ArgoCD-Ingress-Nginx-Secret/key.pem --from-file=/home/ubuntu/Kubernetes/Ingress-Nginx/ArgoCD-Ingress-Nginx-Secret/ca.crt
+$ kubectl create -n argocd secret generic argocd-xingress-grpc  --from-file=/home/ubuntu/Kubernetes/Ingress-Nginx/ArgoCD-Ingress-Nginx-Secret/cert.pem --from-file=/home/ubuntu/Kubernetes/Ingress-Nginx/ArgoCD-Ingress-Nginx-Secret/key.pem --from-file=/home/ubuntu/Kubernetes/Ingress-Nginx/ArgoCD-Ingress-Nginx-Secret/ca.crt
 ```
 
 
@@ -98,8 +98,8 @@ $ kubectl create -n argocd secret generic argocd-ingress-grpc  --from-file=/home
 
 ```bash
 
-$ kubectl delete -n argocd secret argocd-ingress-http
-$ kubectl delete -n argocd secret argocd-ingress-grpc
+$ kubectl delete -n argocd secret argocd-xingress-http
+$ kubectl delete -n argocd secret argocd-xingress-grpc
 ```
 
 
