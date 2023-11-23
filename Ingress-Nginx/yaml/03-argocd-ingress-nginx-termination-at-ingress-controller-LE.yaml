@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: argocd-server-http-xaliyun
+  name: argocd-server-http-xingress
   namespace: argocd
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
@@ -20,18 +20,18 @@ spec:
             name: argocd-server
             port:
               name: http
-    host: argocd.xaliyun.kingxhj.eu.org
+    host: argocd.xingress.kingxhj.eu.org
   tls:
   - hosts:
-    - argocd.xaliyun.kingxhj.eu.org
-    secretName: argocd-xaliyun-le-http
+    - argocd.xingress.kingxhj.eu.org
+    secretName: argocd-xingress-le-http
 
 ---
 
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: argocd-server-grpc-xaliyun
+  name: argocd-server-grpc-xingress
   namespace: argocd
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
@@ -49,11 +49,11 @@ spec:
             name: argocd-server
             port:
               name: https
-    host: grpc.argocd.xaliyun.kingxhj.eu.org
+    host: grpc.argocd.xingress.kingxhj.eu.org
   tls:
   - hosts:
-    - grpc.argocd.xaliyun.kingxhj.eu.org
-    secretName: argocd-xaliyun-le-grpc
+    - grpc.argocd.xingress.kingxhj.eu.org
+    secretName: argocd-xingress-le-grpc
 
-# kubectl delete secret argocd-xaliyun-le-grpc -n argocd
-# kubectl delete secret argocd-xaliyun-le-http -n argocd
+# kubectl delete secret argocd-xingress-le-grpc -n argocd
+# kubectl delete secret argocd-xingress-le-http -n argocd
