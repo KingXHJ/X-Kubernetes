@@ -36,14 +36,17 @@
 
 ### HTTP-01
 1. *未解决* frp 的方式暴露到阿里云上，出现以下问题：
+
     ![problem frp aliyun](./pictures/problem-frp-aliyun.png)
 
     怀疑是国内域名无备案，禁止访问（但是无备案弹出的页面是另一种样式）
 1. Cloudflare Zero Trust 的方式：
     1. 在 Cloudflare Zero Trust 的 Tunnel 中设置 let's encrypt HTTP-01 challenge
+
         ![zerotrust connect le](./pictures/zerotrust-connect-le.png)
 
     1. 在 Kubernetes 中，监测到 challenge 完成后，重新设置 Cloudflare Zero Trust 的 Tunnel：
+   
         ![zerotrust connect user](./pictures/zerotrust-connect-user.png)
 
     1. 同时要设置浏览器（以 Edge 为例）：
@@ -54,10 +57,15 @@
         1. 勾选```使用TLS```和```使用SSL```的相关选项
 
         主要用于避免问题：
+       
         ![problem zerotrust cf](./pictures/problem-zerotrust-cf.png)
+       
     1. 此时在浏览器中就能实现网页的浏览了，但是会显示不安全。同时在 aws lightsail 上也能正常访问了
+
         ![zerotrust aws success](./pictures/zerotrust-aws-success.png)
+       
     - 猜想：
         1. 怀疑开启了了 zero trust tunnel 的 TLS 设置中的 ```No TLS Verify```
         1. 无论是否开启 ```No TLS Verify```，由于没有升级付费的 Zero Trust，CF不会为域名分配证书，会在 DNS 记录中提出警告：
+    
             ![cf dns warning](./pictures/cf-dns-warning.png)
