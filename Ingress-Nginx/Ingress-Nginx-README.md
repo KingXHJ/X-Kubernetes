@@ -43,7 +43,7 @@
     kubectl apply -f 05-argocd-ingress-nginx-termination-at-ingress-controller.yaml
     ```
 
-1. 事先在CloudFlare上将域名 ```azure.kingxhj.eu.org``` 或者 ```argocd.kingxhj.eu.org``` 与 Nginx-Ingress 所在的节点绑定好
+1. 事先在CloudFlare上将域名 ```azure.xingress.kingxhj.eu.org``` 或者 ```argocd.xingress.kingxhj.eu.org``` 与 Nginx-Ingress 所在的节点绑定好
     ```sh
     
     kubectl get pods -n ingress-nginx -o wide
