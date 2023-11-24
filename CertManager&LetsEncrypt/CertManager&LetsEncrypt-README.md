@@ -21,12 +21,23 @@
     kubectl apply -f 01-lets-encrypt-cert-manager-clusterissuer-http-01.yaml
     ```
 
+    or you want to use let's encrypt
+
+    ```sh
+    
+    kubectl apply -f 01-lets-encrypt-cert-manager-clusterissuer-dns-01.yaml
+    ```
+
+    - **Attention:**
+        - 在使用 DNS-01 方式认证之前，先要到域名解析商那里获取对应的 api-token 或者 api-key
+
+
 1. When Nginx Ingress has been [setup](../Ingress-Nginx/Ingress-Nginx-README.md), set an ingress for ArgoCD
     ```sh
 
-    kubectl apply -f 05-argocd-ingress-nginx-passthrough.yaml
-    kubectl apply -f 05-argocd-ingress-nginx-termination-at-ingress-controller.yaml
-    kubectl apply -f 05-argocd-ingress-nginx-le-termination-at-ingress-controller.yaml
+    kubectl apply -f 04-argocd-ingress-nginx-passthrough.yaml
+    kubectl apply -f 04-argocd-ingress-nginx-termination-at-ingress-controller.yaml
+    kubectl apply -f 04-argocd-ingress-nginx-le-termination-at-ingress-controller.yaml
     ```
 
 1. [Check](./script/02-lets-encrypt-cert-manager-ingress-nginx-check.sh) wether let's encrypt and cert manager worked
@@ -34,7 +45,7 @@
 
 ## 注意
 1. 如果绑定域名绑定的是 tailscale 的 IP，是没办法使用 Let's Encrypt 的，因为那是内网 IP
-1. 如果使用 CloudFlare Zero Trust 或者 frp 内网穿透至一个有公网 IP 的云服务器上，只要使用的是 80 端口，那么 HTTP-01 Challenge 就能成功，但是不保证能通过域名访问罢了。采用此方法的 ingress.yaml 为 ```kubectl apply -f 05-argocd-ingress-nginx-termination-at-ingress-controller-aliyun-LE.yaml```
+1. 如果使用 CloudFlare Zero Trust 或者 frp 内网穿透至一个有公网 IP 的云服务器上，只要使用的是 80 端口，那么 HTTP-01 Challenge 就能成功，但是不保证能通过域名访问罢了。采用此方法的 ingress.yaml 为 ```kubectl apply -f 04-argocd-ingress-nginx-termination-at-ingress-controller-aliyun-LE.yaml```
 
 
 ## 实验
@@ -51,7 +62,7 @@
     - 流程：
         1. 阿里云配置 frps，**并打开 frp 端口、http 的 80 端口、https 的 443 端口**
         1. ingress-nginx pod 所在的 node 配置 frpc
-        1. kubernetes cluster 里部署 ```05-argocd-ingress-nginx-termination-at-ingress-controller-aliyun-LE.yaml```
+        1. kubernetes cluster 里部署 ```04-argocd-ingress-nginx-termination-at-ingress-controller-aliyun-LE.yaml```
             - 前提是 cert-manager 的 pod 已经起来了，而且 ```01-lets-encrypt-cert-manager-clusterissuer-http-01.yaml``` 已经部署
 
 1. Cloudflare Zero Trust 的方式：

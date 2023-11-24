@@ -36,11 +36,11 @@
 1. 修改Azure CLI 配置防火墙规则
 
 ## Set Ingress Rules of ArgoCD
-1. 配置 ArgoCD 的[Passthrough规则](../ArgoCD/yaml/05-argocd-ingress-nginx-passthrough.yaml)或者[Termiantion at Ingress Controller规则](../ArgoCD/yaml/05-argocd-ingress-nginx-termination-at-ingress-controller.yaml)
+1. 配置 ArgoCD 的[Passthrough规则](../ArgoCD/yaml/04-argocd-ingress-nginx-passthrough.yaml)或者[Termiantion at Ingress Controller规则](../ArgoCD/yaml/04-argocd-ingress-nginx-termination-at-ingress-controller.yaml)
     ```sh
     
-    kubectl apply -f 05-argocd-ingress-nginx-passthrough.yaml
-    kubectl apply -f 05-argocd-ingress-nginx-termination-at-ingress-controller.yaml
+    kubectl apply -f 04-argocd-ingress-nginx-passthrough.yaml
+    kubectl apply -f 04-argocd-ingress-nginx-termination-at-ingress-controller.yaml
     ```
 
 1. 事先在CloudFlare上将域名 ```azure.xingress.kingxhj.eu.org``` 或者 ```argocd.xingress.kingxhj.eu.org``` 与 Nginx-Ingress 所在的节点绑定好

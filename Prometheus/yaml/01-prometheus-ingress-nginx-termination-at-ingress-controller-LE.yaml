@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: prometheus-http-xaliyun
+  name: prometheus-http-xingress
   namespace: prometheus-operator
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-prod
@@ -20,7 +20,7 @@ spec:
             name: prometheus-operator-kube-p-prometheus
             port:
               number: 9090
-    host: prometheus.xaliyun.kingxhj.eu.org
+    host: prometheus.xingress.kingxhj.eu.org
   - http:
       paths:
       - path: /
@@ -30,9 +30,11 @@ spec:
             name: prometheus-operator-grafana
             port:
               number: 80
-    host: grafana.prometheus.xaliyun.kingxhj.eu.org
+    host: grafana.prometheus.xingress.kingxhj.eu.org
   tls:
   - hosts:
-    - prometheus.xaliyun.kingxhj.eu.org
-    - grafana.prometheus.xaliyun.kingxhj.eu.org
-    secretName: prometheus-xaliyun-le-http
+    - prometheus.xingress.kingxhj.eu.org
+    secretName: prometheus-xingress-le-http
+  - hosts:
+    - grafana.prometheus.xingress.kingxhj.eu.org
+    secretName: grafana-prometheus-xingress-le-http
