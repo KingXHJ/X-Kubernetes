@@ -8,11 +8,17 @@ metadata:
 data:
   policy.default: role:readonly
   policy.csv: |
-    p, role:org-admin, applications, *, */*, allow
-    p, role:org-admin, clusters, get, *, allow
-    p, role:org-admin, repositories, get, *, allow
-    p, role:org-admin, repositories, create, *, allow
-    p, role:org-admin, repositories, update, *, allow
-    p, role:org-admin, repositories, delete, *, allow
+    p, role:x-admin, applications, *, */*, allow
+    p, role:x-admin, clusters, get, *, allow
+    p, role:x-admin, repositories, get, *, allow
+    p, role:x-admin, repositories, create, *, allow
+    p, role:x-admin, repositories, update, *, allow
+    p, role:x-admin, repositories, delete, *, allow
+    p, role:x-admin, projects, get, *, allow
+    p, role:x-admin, projects, create, *, allow
+    p, role:x-admin, projects, update, *, allow
+    p, role:x-admin, projects, delete, *, allow
+    p, role:x-admin, logs, get, *, allow
+    p, role:x-admin, exec, create, */*, allow
 
-    g, TestEngineering, role:org-admin
+    g, X-Group, role:x-admin

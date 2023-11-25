@@ -14,7 +14,9 @@ data:
   # disables user. User is enabled by default
   # accounts.alice.enabled: "false"
   # example
-  accounts.xhj: apiKey, login
+  accounts.kingxhj: apiKey, login
+  accounts.z4hd: apiKey, login
+
 
 # Login and update password
 # argocd login argocd-server.argocd --password 'AAA' --username xhj
