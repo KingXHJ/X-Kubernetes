@@ -21,4 +21,5 @@ data:
     p, role:x-admin, logs, get, *, allow
     p, role:x-admin, exec, create, */*, allow
 
-    g, X-Group, role:x-admin
+    g, kingxhj, role:x-admin
+    g, z4hd, role:x-admin
