@@ -70,3 +70,4 @@ My k8s study
 ## Study Notes
 - [Kubernetes 权威指南](./Notes/KubernetesAuthoritativeGuideBookNotes/Q&A.md)
 - [深入剖析Kubernetes](./Notes/DeepAnalysisKubernetesNotes/00%20Preview%20Section.md)
+- [我的总结](./Notes/Kubernetes.pdf)
