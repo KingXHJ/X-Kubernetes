@@ -36,20 +36,20 @@
 1. 修改Azure CLI 配置防火墙规则
 
 ## Set Ingress Rules of ArgoCD
-1. 配置 ArgoCD 的[Passthrough规则](./yaml/03-argocd-ingress-nginx-passthrough.yaml)或者[Termiantion at Ingress Controller规则](./yaml/03-argocd-ingress-nginx-termination-at-ingress-controller.yaml)
+1. 配置 ArgoCD 的[Passthrough规则](../ArgoCD/yaml/04-argocd-ingress-nginx-passthrough.yaml)或者[Termiantion at Ingress Controller规则](../ArgoCD/yaml/04-argocd-ingress-nginx-termination-at-ingress-controller.yaml)
     ```sh
     
-    kubectl apply -f 03-argocd-ingress-nginx-passthrough.yaml
-    kubectl apply -f 03-argocd-ingress-nginx-termination-at-ingress-controller.yaml
+    kubectl apply -f 04-argocd-ingress-nginx-passthrough.yaml
+    kubectl apply -f 04-argocd-ingress-nginx-termination-at-ingress-controller.yaml
     ```
 
-1. 事先在CloudFlare上将域名 ```azure.kingxhj.eu.org``` 或者 ```argocd.kingxhj.eu.org``` 与 Nginx-Ingress 所在的节点绑定好
+1. 事先在CloudFlare上将域名 ```azure.xingress.kingxhj.eu.org``` 或者 ```argocd.xingress.kingxhj.eu.org``` 与 Nginx-Ingress 所在的节点绑定好
     ```sh
     
     kubectl get pods -n ingress-nginx -o wide
     ```
 
-1. [脚本](./script/03-argocd-ingress-nginx-check.sh)检查与 Cert Manager 和 Let's Encrypt 的链接
+1. [脚本](../CertManager&LetsEncrypt/script/02-lets-encrypt-cert-manager-ingress-nginx-check.sh)检查与 Cert Manager 和 Let's Encrypt 的链接
 
 
 ## Try Ingress Step by Step

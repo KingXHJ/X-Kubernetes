@@ -4,6 +4,8 @@ metadata:
   name: prometheus-http-xingress
   namespace: prometheus-operator
   annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    # kubernetes.io/tls-acme: "true"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTP"
 spec:

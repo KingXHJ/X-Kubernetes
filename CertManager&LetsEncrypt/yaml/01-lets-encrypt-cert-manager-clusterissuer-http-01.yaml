@@ -12,4 +12,4 @@ spec:
     - http01:
         ingress:
           class: nginx
-# kubectl apply -f 01-argocd-lets-encrypt-cert-manager-clusterissuer.yaml
+# kubectl apply -f 01-argocd-lets-encrypt-cert-manager-clusterissuer-http-01.yaml
